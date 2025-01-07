@@ -1,0 +1,1 @@
+python.exe polarion-artifacts-deployer.py --polarion-home C:\Polarion --action install --local_repo local-maven-repo --polarion-version=2304

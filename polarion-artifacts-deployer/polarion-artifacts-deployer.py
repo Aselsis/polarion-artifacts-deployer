@@ -49,6 +49,9 @@ def execute_mvn_command(mvn_action, file_name, group_id, artifact_id, version):
     if args.repository_url:
         mvn_command += f' -Durl={args.repository_url}'
 
+    if args.local_repo:
+          mvn_command += f' -DlocalRepositoryPath={args.local_repo}'
+
     mvn_dependency_template = '''\
     <dependency>
         <groupId>{group_id}</groupId>
@@ -113,6 +116,7 @@ if __name__ == '__main__':
     parser.add_argument('--settings-path', metavar='path', dest='settings_path', help='path to settings.xml')
     parser.add_argument('--repository-id', metavar='repo', dest='repository_id', action='store', help='repository id from maven settings.xml')
     parser.add_argument('--repository-url', metavar='url', dest='repository_url', action='store', help='repository URL to deploy the artifacts')
+    parser.add_argument('--local_repo', metavar='local_repo', dest='local_repo', action='store', help='local_repo to deploy the artifacts')
 
     args = parser.parse_args()
 
